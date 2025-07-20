@@ -6,12 +6,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import birthdaysRoutes from './routes/BirthdaysRoute.js';
+import authRoutes from './routes/AuthRoutes.js';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use('/api/birthdays', birthdaysRoutes);
+app.use('/api/auth', authRoutes);
 
 // Corrected version
 mongoose.connect(process.env.MONGO_URI, {
